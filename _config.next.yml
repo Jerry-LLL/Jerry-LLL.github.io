@@ -29,7 +29,6 @@ custom_file_path:
   #variable: source/_data/variables.styl
   #mixin: source/_data/mixins.styl
   #style: source/_data/styles.styl
-   sidebar-author: source/_data/sidebar-author.styl
 
 # ---------------------------------------------------------------
 # Scheme Settings
@@ -144,7 +143,7 @@ avatar:
   # If true, the avatar will be displayed in circle.
   rounded: true
   # If true, the avatar will be rotated with the cursor.
-  rotated: false
+  rotated: true
 
 # Posts / Categories / Tags in sidebar.
 site_state: true

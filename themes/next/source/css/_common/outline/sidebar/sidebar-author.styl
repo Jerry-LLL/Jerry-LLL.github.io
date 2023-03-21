@@ -8,12 +8,18 @@
   }
 
   if (hexo-config('avatar.rotated')) {
-    transition: transform 1s ease-out;
+    -webkit-animation:rotateImg 10s linear infinite;
 
     &:hover {
-      transform: rotateZ(360deg);
+      -webkit-animation-play-state: paused;
     }
+
   }
+}
+
+@keyframes rotateImg {
+  0% {transform : rotate(0deg);} /* 动画起始帧*/
+  100% {transform : rotate(360deg);} /*动画结束帧*/
 }
 
 .site-author-name {
