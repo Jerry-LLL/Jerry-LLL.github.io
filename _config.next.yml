@@ -29,7 +29,7 @@ custom_file_path:
   #variable: source/_data/variables.styl
   #mixin: source/_data/mixins.styl
   #style: source/_data/styles.styl
-
+   sidebar-author: source/_data/sidebar-author.styl
 
 # ---------------------------------------------------------------
 # Scheme Settings
@@ -140,7 +140,7 @@ sidebar:
 # Sidebar Avatar
 avatar:
   # Replace the default image and set the url here.
-  url: source/images/jerry_1.jpeg
+  url: images/jerry_1.jpeg
   # If true, the avatar will be displayed in circle.
   rounded: true
   # If true, the avatar will be rotated with the cursor.
