@@ -5,10 +5,10 @@
 # Site
 title: wj's blog
 subtitle: 'Jerry_L'
-description: '小老鼠的个鼠博客'
+dscription: '小老鼠的个鼠博客'
 keywords:
 author: wj
-language: en
+language: zh-CN
 timezone: ''
 
 # URL
@@ -97,7 +97,7 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: landscape
+theme: next
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
