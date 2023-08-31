@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 5.4.2">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-icon.jpeg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/32x32-wj.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/16x16-wj.ico">
+  <link rel="mask-icon" href="/images/apple-icon.jpeg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha256-/4UQcSmErDzPCMAiuOiWPVVsNN2s3ZY/NsmXNcj0IFc=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.15.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="¶免责声明 我是猪鼻，我是猪鼻，本文旨在记录一只又懒又笨的小老鼠学习机器学习的过程，无专业指导，无专业参考资料，也指不定什么时候就会放弃。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="机器学习学习记录">
+<meta property="og:url" content="http://example.com/2023/04/08/ml-leaning/index.html">
+<meta property="og:site_name" content="wj&#39;s blog">
+<meta property="og:description" content="¶免责声明 我是猪鼻，我是猪鼻，本文旨在记录一只又懒又笨的小老鼠学习机器学习的过程，无专业指导，无专业参考资料，也指不定什么时候就会放弃。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-04-08T11:08:35.000Z">
+<meta property="article:modified_time" content="2023-08-31T14:48:55.547Z">
+<meta property="article:author" content="Jerry_L">
+<meta property="article:tag" content="记录">
+<meta property="article:tag" content="机器学习">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2023/04/08/ml-leaning/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2023/04/08/ml-leaning/","path":"2023/04/08/ml-leaning/","title":"机器学习学习记录"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>机器学习学习记录 | wj's blog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">wj's blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Jerry_L</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%8D%E8%B4%A3%E5%A3%B0%E6%98%8E"><span class="nav-number">1.</span> <span class="nav-text">免责声明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%86%99%E5%9C%A8%E5%89%8D%E9%9D%A2"><span class="nav-number">2.</span> <span class="nav-text">写在前面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Let%E2%80%99s-Go"><span class="nav-number">3.</span> <span class="nav-text">Let’s Go</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Day1-2023-04-08"><span class="nav-number">3.1.</span> <span class="nav-text">Day1 2023.04.08</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Jerry_L"
+      src="/images/jerry_1.jpeg">
+  <p class="site-author-name" itemprop="name">Jerry_L</p>
+  <div class="site-description" itemprop="description">整点薯条，囤点芝士</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/u/6442173302" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;u&#x2F;6442173302" rel="noopener me" target="_blank"><i class="fab fa-weibo fa-fw"></i>Weibo</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/04/08/ml-leaning/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/jerry_1.jpeg">
+      <meta itemprop="name" content="Jerry_L">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="wj's blog">
+      <meta itemprop="description" content="整点薯条，囤点芝士">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="机器学习学习记录 | wj's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          机器学习学习记录
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-04-08 19:08:35" itemprop="dateCreated datePublished" datetime="2023-04-08T19:08:35+08:00">2023-04-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-08-31 22:48:55" itemprop="dateModified" datetime="2023-08-31T22:48:55+08:00">2023-08-31</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%8A%9D%E5%A3%AB/" itemprop="url" rel="index"><span itemprop="name">芝士</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%8A%9D%E5%A3%AB/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">机器学习</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="免责声明"><a class="header-anchor" href="#免责声明">¶</a>免责声明</h2>
+<p>我是猪鼻，我是猪鼻，本文旨在记录一只又懒又笨的小老鼠学习机器学习的过程，无专业指导，无专业参考资料，也指不定什么时候就会放弃。</p>
+<span id="more"></span>
+<h2 id="写在前面"><a class="header-anchor" href="#写在前面">¶</a>写在前面</h2>
+<p>自我认证一个特点，“单线程”…，我很早就想学点新东西，但我的cpu一直被阻塞…原因就是找工作，不得不说真难呀，一开始没重视，简历差，八股也差，想去的公司又少，流程还慢，到四月份了还没一个定论，一浮躁起来什么其他事都不想干（放松除外），所以一直搁置，直到最近感觉学八股快到头了，再继续学收益不高，索性学点新东西试试。</p>
+<p>自问自答讲几个心历路程。</p>
+<p><strong>为什么是机器学习，不是语言进阶或是专攻几个组件亦或者架构设计方面的呢？</strong></p>
+<p>两个原因</p>
+<ol>
+<li>兴趣使然，虽然我在这几个方面都属于初学者，但我隐约可以预见我对于后者那些方向的学习路程，更多的是剖析和吸取经验，再做拓展，很难创新。而机器学习给我的感觉更为特殊，它更像是搭建，按照人类的思维轨迹，创造出新的生物思维一般。（这里说的大了，就当我好奇心重就行了）</li>
+<li>收益，chatgpt的横空出世，引发了席卷全球的风暴，有人形容它为第四次工业革命的开端，我不觉得夸张。有句话是这么说的，如果纺织机能完全替代纺织工人，那只有去做制造纺织机的人才能保住工作。从几个例子里我已经看到了初阶工程师被替代的可能，所以其实我没有选择。（也说大了，机器学习入门和chatgpt的差距我都懒得比喻，但收益确实是需要考虑的点）</li>
+</ol>
+<p><strong>为什么不读研，或者类似碰壁更少的路？</strong></p>
+<p>也是两个原因</p>
+<ol>
+<li>没有条件<br>
+a) 考不上，花半年到一年的时间让我去学一些不感兴趣的东西，纠结那些细枝末节又收益极低的问题，埋了我得了。（不吐槽太多，我对于这部分想法一直很偏激）<br>
+b) 没钱，除了学习，我同样热爱生活，有钱才能实现我的梦想。</li>
+<li>优先级问题，我并没有把这件事当成我的头等大事，路要踏踏实实的走，如果把目标划分成 “能做好的”，&quot;想做好的&quot;这两个维度，显然我不一定甚至很难说做的好。</li>
+</ol>
+<p><strong>暂时就这些，如果想到更多的再补充吧。</strong></p>
+<h2 id="Let’s-Go"><a class="header-anchor" href="#Let’s-Go">¶</a>Let’s Go</h2>
+<h3 id="Day1-2023-04-08"><a class="header-anchor" href="#Day1-2023-04-08">¶</a>Day1 2023.04.08</h3>
+<p>我有两个学习习惯，比较好描述，也同样打算这么开始。</p>
+<ol>
+<li>实践-理论-实践，从成果出发，映照着一些概念性的东西入门，再做一些逻辑推演，学习一些理论，再回到实际产品，结合理论来重新分析。举个栗子，比如说计算机网络，这个比较庞大的内容，我很喜欢用抢红包这个事件来出发，理解网络上各个节点的概念的时候，我会想象从手机点击按钮开始，中间的信息传递经过了哪些部分，最终怎么到服务器，又怎么回来的，诸如此类的想法。一些通俗易懂的博客或者科普视频都是这么做的，非常好理解。<br>
+<br/><br>
+所以这次同样打算这么开始，选择的栗子就是大学里简单搞过的象棋人工智障。我得提一下这玩意儿的背景，它的一手开发者是何俊毅（我发小），他在大二上学期的时候有一门课主题好像是游戏+ai的结合，于是他大作业就搞了这个，算法自己写的，素材网上找的。我大二下（记不清了，应该这个时候）也选了个机器学习的选修课，当时不是奔着学来的，就因为这门课的老师是最松的老师哈哈，我忙着学别的嘛，就选这门课来凑学分了。最后大作业就直接白嫖何俊毅的人工智障了，但因为真的太智障了（除了会走啥也不会，将军摆脸上都不吃），我就和jiedai（大学好友）修了下算法，勉强还行。</li>
+<li>总分总，或者叫递归式学习？从最宽泛的概念开始，系统了解之后，再分细节展开，最后总结式的记忆。没啥好说的。</li>
+</ol>
+<p>今天主要做的事情是思考，下午打了两个小时球，除了投篮的那一下以外，其他时候都在对上面所述的象棋人工智障在做联想。记录一下都想了些啥，下面会把这个人工智障称为&quot;阿尔法鼠&quot;（大学同学的戏称）</p>
+<p>我们试着理解这么几个概念</p>
+<ol>
+<li>局面<br>
+象棋的初始状态，所有棋子按照规则摆放在它应该摆放的位置，在移动数步之后，摆放位置会发生一定的变化，我们称某一时刻，所有棋子的摆放位置为局面</li>
+<li>动作<br>
+每一个棋子都可以按照规则来进行移动，比如象走田，马走日</li>
+</ol>
+<p>很简单地可以发现，局面和动作之间是关联的，每一个局面经过一次动作会到达另一个局面。<br>
+于是阿尔法鼠一代就做好了，用代码的方式让它记录当前的局面，并遍历所有棋子，获得所有可以进行的动作，并随机选择一个，它就可以在毡板上任人宰割了。</p>
+<p>想象一下假如自己是一个象棋初学者，你下的第一盘棋是什么样的。按照说明书上的，把每个棋子正确置放之后，看着自己面前的棋子十分茫然，不知道该动哪一个，选好了之后还要对照说明书，看看可以怎么动。跟阿尔法鼠一代是不是有点像。</p>
+<p>这么笨可不行，再优化下试试，让我们来尝试两个新概念</p>
+<ol>
+<li>局势<br>
+通过规则我们可以知道，只要自己的老大被干掉就输了，反之干掉对面老大就赢了，我们称越接近胜利的局面 局势越好，反之局势越差。按照经验（切记不要先入为主，经验只是帮助我们理解的工具）必杀局面（一步或者几步就能将死），棋子数量差距，棋子布局，按照人类的思考方式，这些都能成为评估局势的手段。</li>
+<li>策略<br>
+在所有可以选择的动作中，我们尝试不再按照相同的概率去选择，某些动作被执行的概率更高，反之部分概率则会降低，影响动作执行的概率我们称之为策略。</li>
+</ol>
+<p>同样可以简单的发现，局势会影响策略，但需要注意的是，局势可以理解成策略的子集，我们完全可以忽略局势这个概念，只要告诉阿尔法鼠一定的策略，他就会更聪明，只不过在象棋中，局势这个概念更容易被理解和分析，所以单拎出来讲了而已。</p>
+<p>想象一下被告知有这两种策略的阿尔法鼠，一、有帅吃帅，无帅吃车，车帅都无，马炮也行。二、无马无炮，起士保帅，士已到位，再起个象。</p>
+<p>ok，阿尔法鼠在毡板上蹦跶了两下，双炮上来就换掉对面的双马，然后就开始原地防守。<br>
+这俩策略有点猪鼻怎么办，有没有简单一点办法让它能思考更多东西。</p>
+<p>引入在博弈游戏中常出现的局势这个概念，我们先按照经验制定一版简单的，按照棋子的棋力来描述局面，将帅最重要，吃掉就赢，定一个一万分，车也还行，一百分，马灵活一点，80分，炮吃子的时候藏得深，60分…<br>
+于是简单的局势评估就这么定好了，阿尔法鼠在每次进行动作选择的时候，会判断动作结束之后的局势，局势越好的动作，越可能被它选择到。<br>
+这次它蹦跶地更厉害了，会点进攻又会点防守，但为什么怎么蹦跶，都还在毡板上呢？原因自然是局势的判断或者策略不够好，稍微懂点象棋的朋友应该知道，按照棋力去评估局势其实是很好的手段了，不至于让它这么蠢，所以问题还是出在策略上，它只看的到一步之后的局势。</p>
+<p>如果它只能分析一步，会连换子都不知道，用自己的车横冲直撞，然后被别人轻松的吃掉。那我们可以优化一下，能不能想两步或者更多？先试试看两步，两步怎么看？阿尔法鼠不敢违反规则，它只能动一步，下一步得对面来走。在苦恼之际，伟大的科学家蒙特卡洛出现了，小鼠啊，让我来告诉你该怎么想，假设你走这步，再去遍历阿尔法猪（阿尔法鼠的对手）的动作，看看它能到达的最好局势，选最终导致这个最好局势最差的那一步就行啦。<br>
+阿尔法鼠恍然大悟，这个策略不错，它终于逃离了毡板，但还是在洗手池里被抓了回来。<br>
+反思一番之后发现，聪明的阿尔法鼠举一反三，它把蒙特卡洛的话扩展了一番，决定反复横跳三次，双层饼不行就三层饼，三层不行就四层！</p>
+<p>可怜的阿尔法鼠还没被宰就因为大脑过载死亡了。</p>
+<p>为什么会出现这样的结果呢，不难理解，第一次选择的动作假如有一百个，那么两层想象就有100*100 一万种，三层一百万，四层一亿，虽然阿尔法鼠的脑子很好用但还是禁不起这样压榨。</p>
+<p>不过没事，虽然我们暂时没能帮助阿尔法鼠崛起，但可以比较清楚地理解策略和局势这两个概念了。</p>
+<p>day1就先到这吧，我想的肯定要更多一点，但是写是写不完了，明天再写。</p>
+<p>思考两个问题</p>
+<ol>
+<li>如何让阿尔法鼠想简单点？我们在下棋的时候是如何思考的？</li>
+<li>在上文中，提到了很多&quot;经验&quot;这个词，这个是记忆在我们的脑袋里的，阿尔法鼠有没有办法积累经验，如何积累？</li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E8%AE%B0%E5%BD%95/" rel="tag"># 记录</a>
+              <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag"># 机器学习</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/03/25/5/" rel="prev" title="失眠">
+                  <i class="fa fa-chevron-left"></i> 失眠
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2023/06/04/end_and_begin/" rel="next" title="尘埃落定，一切都是最好的安排">
+                  尘埃落定，一切都是最好的安排 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa-solid fa-shield-cat"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jerry_L</span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

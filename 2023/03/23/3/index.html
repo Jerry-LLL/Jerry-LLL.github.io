@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 5.4.2">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-icon.jpeg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/32x32-wj.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/16x16-wj.ico">
+  <link rel="mask-icon" href="/images/apple-icon.jpeg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha256-/4UQcSmErDzPCMAiuOiWPVVsNN2s3ZY/NsmXNcj0IFc=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.15.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="看完pureWhite大哥的golang课程一，简单记录一些笔记挖一些坑，再留一点坑以后有空了填， 顺便推荐一下pureWhite大哥推荐的golang学习博客嘿嘿 https:&#x2F;&#x2F;qcrao.com&#x2F;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="golang学习笔记（一）">
+<meta property="og:url" content="http://example.com/2023/03/23/3/index.html">
+<meta property="og:site_name" content="wj&#39;s blog">
+<meta property="og:description" content="看完pureWhite大哥的golang课程一，简单记录一些笔记挖一些坑，再留一点坑以后有空了填， 顺便推荐一下pureWhite大哥推荐的golang学习博客嘿嘿 https:&#x2F;&#x2F;qcrao.com&#x2F;">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-03-23T05:55:42.000Z">
+<meta property="article:modified_time" content="2023-08-31T14:48:55.546Z">
+<meta property="article:author" content="Jerry_L">
+<meta property="article:tag" content="golang">
+<meta property="article:tag" content="学习笔记">
+<meta property="article:tag" content="mark">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2023/03/23/3/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2023/03/23/3/","path":"2023/03/23/3/","title":"golang学习笔记（一）"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>golang学习笔记（一） | wj's blog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">wj's blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Jerry_L</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">一、slice and array</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#slice%E7%9A%84%E7%BB%93%E6%9E%84"><span class="nav-number">1.1.</span> <span class="nav-text">slice的结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8C%96%E5%87%A0%E4%B8%AA%E5%9D%91"><span class="nav-number">1.2.</span> <span class="nav-text">挖几个坑</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#for-range%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-number">1.2.1.</span> <span class="nav-text">for range的问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E7%94%A8array"><span class="nav-number">1.2.2.</span> <span class="nav-text">什么时候用array</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#slice%E7%9A%84%E6%89%A9%E5%AE%B9%E6%9C%BA%E5%88%B6"><span class="nav-number">1.2.3.</span> <span class="nav-text">slice的扩容机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#slice%E7%9A%84%E6%95%88%E7%8E%87%E9%97%AE%E9%A2%98"><span class="nav-number">1.2.4.</span> <span class="nav-text">slice的效率问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#slice%E4%BD%9C%E4%B8%BA%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0%E8%B0%83%E7%94%A8%E7%9A%84%E5%9D%91"><span class="nav-number">1.2.5.</span> <span class="nav-text">slice作为函数参数调用的坑</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#slice%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="nav-number">1.2.6.</span> <span class="nav-text">slice初始化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E4%B8%AAbce-Bounds-Checking-Elimination-%E7%9A%84%E5%B0%8F%E6%8A%80%E5%B7%A7"><span class="nav-number">1.2.7.</span> <span class="nav-text">一个bce(Bounds Checking Elimination)的小技巧</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">2.</span> <span class="nav-text">Map</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Map%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="nav-number">2.1.</span> <span class="nav-text">Map的数据结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9D%91%E7%82%B9"><span class="nav-number">2.1.1.</span> <span class="nav-text">坑点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#bucket%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="nav-number">2.1.2.</span> <span class="nav-text">bucket的数据结构</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#map%E7%9A%84%E5%88%9B%E5%BB%BA"><span class="nav-number">2.2.</span> <span class="nav-text">map的创建</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9D%91%E7%82%B9-v2"><span class="nav-number">2.2.1.</span> <span class="nav-text">坑点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#map%E7%9A%84%E8%B5%8B%E5%80%BC"><span class="nav-number">2.3.</span> <span class="nav-text">map的赋值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#map%E7%9A%84%E8%AF%BB%E5%8F%96%E5%92%8C%E9%81%8D%E5%8E%86"><span class="nav-number">2.4.</span> <span class="nav-text">map的读取和遍历</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#map%E7%9A%84%E5%88%A0%E9%99%A4"><span class="nav-number">2.5.</span> <span class="nav-text">map的删除</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#map%E7%9A%84%E6%89%A9%E5%AE%B9"><span class="nav-number">2.6.</span> <span class="nav-text">map的扩容</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%A9%E5%AE%B9%E6%97%B6%E6%9C%BA"><span class="nav-number">2.6.1.</span> <span class="nav-text">扩容时机</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AD%89%E9%87%8F%E6%89%A9%E5%AE%B9"><span class="nav-number">2.6.1.1.</span> <span class="nav-text">等量扩容</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%A4%E5%80%8D%E6%89%A9%E5%AE%B9"><span class="nav-number">2.6.1.2.</span> <span class="nav-text">两倍扩容</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%A9%E5%AE%B9%E6%96%B9%E5%BC%8F"><span class="nav-number">2.6.2.</span> <span class="nav-text">扩容方式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%9D%E5%A4%96%E7%9A%84%E5%B0%8F%E5%9D%91"><span class="nav-number">2.7.</span> <span class="nav-text">额外的小坑</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%93%E8%AF%AD"><span class="nav-number">2.8.</span> <span class="nav-text">结语</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Jerry_L"
+      src="/images/jerry_1.jpeg">
+  <p class="site-author-name" itemprop="name">Jerry_L</p>
+  <div class="site-description" itemprop="description">整点薯条，囤点芝士</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/u/6442173302" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;u&#x2F;6442173302" rel="noopener me" target="_blank"><i class="fab fa-weibo fa-fw"></i>Weibo</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/03/23/3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/jerry_1.jpeg">
+      <meta itemprop="name" content="Jerry_L">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="wj's blog">
+      <meta itemprop="description" content="整点薯条，囤点芝士">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="golang学习笔记（一） | wj's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          golang学习笔记（一）
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-03-23 13:55:42" itemprop="dateCreated datePublished" datetime="2023-03-23T13:55:42+08:00">2023-03-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-08-31 22:48:55" itemprop="dateModified" datetime="2023-08-31T22:48:55+08:00">2023-08-31</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%8A%9D%E5%A3%AB/" itemprop="url" rel="index"><span itemprop="name">芝士</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%8A%9D%E5%A3%AB/golang/" itemprop="url" rel="index"><span itemprop="name">golang</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>看完pureWhite大哥的golang课程一，简单记录一些笔记挖一些坑，再留一点坑以后有空了填，<br>
+顺便推荐一下pureWhite大哥推荐的golang学习博客嘿嘿 <a target="_blank" rel="noopener" href="https://qcrao.com/">https://qcrao.com/</a></p>
+<span id="more"></span>
+<h1>一、slice and array</h1>
+<h2 id="slice的结构"><a class="header-anchor" href="#slice的结构">¶</a>slice的结构</h2>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> slice <span class="keyword">struct</span>&#123;</span><br><span class="line">   array unsafe.Pointer </span><br><span class="line">   <span class="built_in">len</span> <span class="type">int</span> </span><br><span class="line">   <span class="built_in">cap</span> <span class="type">int</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>slice是一个结构体，包含array指针<br>
+当slice或者array作为函数参数调用时，slice的性能更好（golang函数参数传递都为值传递，slice传指针，需要copy的内容少，array反之）</p>
+<h2 id="挖几个坑"><a class="header-anchor" href="#挖几个坑">¶</a>挖几个坑</h2>
+<h3 id="for-range的问题"><a class="header-anchor" href="#for-range的问题">¶</a>for range的问题</h3>
+<p><a target="_blank" rel="noopener" href="https://juejin.cn/post/7120078796845219871">https://juejin.cn/post/7120078796845219871</a><br>
+我是这么理解这个坑的，for k,v := range a 的时候，value的内存空间都是同一个，值为a中元素的拷贝，那么如果a中元素为数组，只会把这个数组不停往value里填，但内存空间是不变的，data append的时候，首先会将array转成slice，经过自己的实验，发现slice的array指针地址会直接赋值为array的地址，那么append之后，这些slice中的array指针地址都是同一个<br>
+如果a中元素为slice，那么会把slice赋值给value，data append的时候不用进行类型转换，会直接赋值，那么data中的slice中的array指针都是各自的，不会出现指向同一块的情况。</p>
+<h3 id="什么时候用array"><a class="header-anchor" href="#什么时候用array">¶</a>什么时候用array</h3>
+<p>这是pureWhite大哥在某一个课程中留下来的思考题，出于本能（坏习惯哈哈）想了一会儿没想出答案就去搜了一下，发现并没有直接的答案，不过看到一个提示，array的内存空间是固定的，不会像slice一样，经常扩容，产生内存碎片。那我感觉答案有点呼之欲出了，在明确需要的数组长度时，并且不需要进行数组的值传递，我们是可以使用array来提升内存利用率的<br>
+不过感觉还是不够清晰完整，mark一下先吧</p>
+<h3 id="slice的扩容机制"><a class="header-anchor" href="#slice的扩容机制">¶</a>slice的扩容机制</h3>
+<p>pureWhite大哥帮我们找到了明确的源码，长度小于1024的时候是成倍扩容，大于1024的时候是1.25倍扩容，至于为什么是1.25，我想（pureWhite大哥也提到了）是因为这是空间冗余和扩容频率的一个平衡点，经过大量实验得出的。</p>
+<h3 id="slice的效率问题"><a class="header-anchor" href="#slice的效率问题">¶</a>slice的效率问题</h3>
+<p>使用slice的时候，如果能定容和定长，直接取下标内存赋值，显然是最快的</p>
+<h3 id="slice作为函数参数调用的坑"><a class="header-anchor" href="#slice作为函数参数调用的坑">¶</a>slice作为函数参数调用的坑</h3>
+<p>这里记住一个点就行，就是slice在扩容的时候，会重新分配内存空间，而不是在原来的内存空间后面加内存空间，所以如果你想传一个slice到函数里头，并且在函数里面修改的话，要注意扩容这个特性，避免修改失效</p>
+<h3 id="slice初始化"><a class="header-anchor" href="#slice初始化">¶</a>slice初始化</h3>
+<p>var s []int 这种初始化方式，s是一个null， s := []int{} 这种初始化，s是[]</p>
+<h3 id="一个bce-Bounds-Checking-Elimination-的小技巧"><a class="header-anchor" href="#一个bce-Bounds-Checking-Elimination-的小技巧">¶</a>一个bce(Bounds Checking Elimination)的小技巧</h3>
+<p>pureWhite大哥教给我们的，利用编译器优化机制做的一个优化</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">func bce(s []int)&#123;</span><br><span class="line">    _ = s[3]</span><br><span class="line">    i := 0</span><br><span class="line">    i = i + s[0]</span><br><span class="line">    i = i + s[1]</span><br><span class="line">    i = i + s[2]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在上面的代码中，如果有办法让编译器知道下标为3不会越界，它就不会在下面访问0，1，2下标的时候去判断越界</p>
+<p>tips: go tool compile -S a.go 获得汇编结果</p>
+<h1>Map</h1>
+<h2 id="Map的数据结构"><a class="header-anchor" href="#Map的数据结构">¶</a>Map的数据结构</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">// A header for a Go map.</span><br><span class="line">type hmap struct &#123;</span><br><span class="line">    // 元素个数，调用 len(map) 时，直接返回此值</span><br><span class="line">	count     int</span><br><span class="line">	flags     uint8</span><br><span class="line">	// buckets 的对数 log_2</span><br><span class="line">	B         uint8</span><br><span class="line">	// overflow 的 bucket 近似数</span><br><span class="line">	noverflow uint16</span><br><span class="line">	// 计算 key 的哈希的时候会传入哈希函数</span><br><span class="line">	hash0     uint32</span><br><span class="line">    // 指向 buckets 数组，大小为 2^B</span><br><span class="line">    // 如果元素个数为0，就为 nil</span><br><span class="line">	buckets    unsafe.Pointer</span><br><span class="line">	// 扩容的时候，buckets 长度会是 oldbuckets 的两倍</span><br><span class="line">	oldbuckets unsafe.Pointer</span><br><span class="line">	// 指示扩容进度，小于此地址的 buckets 迁移完成</span><br><span class="line">	nevacuate  uintptr</span><br><span class="line">	extra *mapextra // optional fields</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>直接照搬的qcrao大哥的代码</p>
+<h3 id="坑点"><a class="header-anchor" href="#坑点">¶</a>坑点</h3>
+<p>我觉得需要业务使用重点记的只有flags，标志map的读写问题，如果有并发写或者并发读写，会直接引发panic（搜了一下golang不支持并发读写的原因是，认为去加锁去支持的话，会降低性能，而大部分场景也不需要，所以直接抛出panic，如果实在需要，可以自己用锁实现或者用go1.9版本引入的sync.map）<br>
+其他的跟上层使用关系不大？（暂时是这么认为的，如果以后有这方面的优化或者踩坑，再来改改）</p>
+<h3 id="bucket的数据结构"><a class="header-anchor" href="#bucket的数据结构">¶</a>bucket的数据结构</h3>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">type bmap struct &#123;</span><br><span class="line">    topbits  [8]uint8</span><br><span class="line">    keys     [8]keytype</span><br><span class="line">    values   [8]valuetype</span><br><span class="line">    pad      uintptr</span><br><span class="line">    overflow uintptr</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>出于内存和性能的考虑（猜的，mark一下），开发者们将存储kv的结构设计成了一个bucket，每个bucket可以放8个kv，放不下了会像链表一样往后再加个overflow的bucket<br>
+细节不讲太多了，有需要的可以直接看这篇 <a target="_blank" rel="noopener" href="https://qcrao.com/post/dive-into-go-map/">https://qcrao.com/post/dive-into-go-map/</a></p>
+<h2 id="map的创建"><a class="header-anchor" href="#map的创建">¶</a>map的创建</h2>
+<p>分配内存（设置B的大小） + 设置哈希函数（根据定义的类型来获取）</p>
+<h3 id="坑点-v2"><a class="header-anchor" href="#坑点-v2">¶</a>坑点</h3>
+<p>map创建完之后是一个指针，任何传递都是指针地址传递（函数调用时修改会直接影响实参），如果需要拷贝一份，那么得自己实现浅拷贝和深拷贝</p>
+<h2 id="map的赋值"><a class="header-anchor" href="#map的赋值">¶</a>map的赋值</h2>
+<p>这里只做概括，细节可以看qcrao大哥的文章</p>
+<p>Q: key是如何对应到某个bucket的呢<br>
+A: key值通过哈希函数哈希之后获得一个64位二进制数，取后B位（B在上面map的结构体里），找到对应的bucket，比如 B为3，哈希值后3位为010，则放到2号bucket，101放到5号bucket</p>
+<p>Q: 那之前说bucket可以存至少8个key，那key和bucket内部的内存是如何对应的呢<br>
+A: 哈希值的前8位和bucket中的topbits一一比较，如果发现有对得上的，再用key值和bucket中已经存在的key2比较，如果相等，说明key的位置就找到了，如果不相等，则一直往下找（包括overflow bucket），如果都不存在，那么直接找第一个空位往里填就行了</p>
+<h2 id="map的读取和遍历"><a class="header-anchor" href="#map的读取和遍历">¶</a>map的读取和遍历</h2>
+<p>key值对应的部分在赋值部分讲过了，遍历稍微特殊一点，因为map内部的kv完全是无序的，即使在扩容之前保持了一定的结构，在扩容之后结构也会完全打乱，而设计Go的大叔们不想我这样的新手程序猿进入这种误区，所以就在遍历的时候，完全按照随机顺序遍历了</p>
+<h2 id="map的删除"><a class="header-anchor" href="#map的删除">¶</a>map的删除</h2>
+<p>这个和写入类似，不细讲了</p>
+<h2 id="map的扩容"><a class="header-anchor" href="#map的扩容">¶</a>map的扩容</h2>
+<h3 id="扩容时机"><a class="header-anchor" href="#扩容时机">¶</a>扩容时机</h3>
+<p>有两种扩容方式</p>
+<h4 id="等量扩容"><a class="header-anchor" href="#等量扩容">¶</a>等量扩容</h4>
+<p>如果map里经常有写和删的操作，那么容易造成overflow buckets过多的情况，比如加进来9个key正好都在一个bucket里，那么就会多一个overflow，这时候再把原bucket里的8个数删光，那就白白多一个bucket的检索时间，浪费效率，简单来说就是bucket里的内容太稀疏了，所以需要等量的bucket重新刷一遍，让key密集一点</p>
+<h4 id="两倍扩容"><a class="header-anchor" href="#两倍扩容">¶</a>两倍扩容</h4>
+<p>buckets内容太挤了，存储的key值数量太多，接近上限，会影响查找和插入效率，所以需要扩容，这个时候是真的容量不够，需要再加一倍的量，所以采取的是两倍扩容</p>
+<h3 id="扩容方式"><a class="header-anchor" href="#扩容方式">¶</a>扩容方式</h3>
+<p>概括一下流程，map对象里的oldBuckets指针指向原buckets指针，重新申请buckets的内存空间，再把oldBuckets里的内容逐渐往buckets里迁，每次迁移一个bucket<br>
+迁移有几个细节</p>
+<ol>
+<li>新bucket和老bucket的对应，等量扩容是一一对应的，这个非常好理解，只要把overflow bucket的内容缩一遍就达到目的了，但是两倍扩容的话，则是一对二，我们可以回到key值和bucket对应的那个部分，我们取了key值的哈希值的后B位，不难得知，两倍扩容之后，我们应该取B+1位，所以原来的bucket也会多对应一个，比如010这个bucket会对应1010和0010这两个桶，这样每个桶都有自己对应的两个桶且不重复</li>
+<li>迁移的时候读取，会优先读新bucket，按照map的结构体里的nevacuate这个参数，我们是可以知道现在的迁移进度的，也就是可以知道现在读的这个bucket有没有迁移完成，如果没有迁移完成，那么就会回到老bucket里面去读</li>
+<li>迁移的时候写入，这个比读要特殊一点，毕竟写老bucket是没有任何意义的，而直接写新bucket，可能会和迁移过程冲突，所以要先等要写入的bucket先迁移完成，再往里写</li>
+<li>迁移的时候遍历，这个和读取类似</li>
+<li>迁移的时候删除，和写入类似</li>
+</ol>
+<h2 id="额外的小坑"><a class="header-anchor" href="#额外的小坑">¶</a>额外的小坑</h2>
+<ol>
+<li>delete map中的元素之后，map不会自动缩容，这导致map会一直占用一台机器的内存，直到它不再使用，被垃圾回收，至于为什么，mark一下qaq</li>
+<li>NaN作为key插入map的时候，无法获取其value，因为NaN != NaN，而它在遍历的时候会被找出来，并且可能会被找出来多个</li>
+</ol>
+<h2 id="结语"><a class="header-anchor" href="#结语">¶</a>结语</h2>
+<p>哎这部分先到这吧，光是学这两个还算简单的类型，背后都挖出这么多东西，想要完整的掌握，是需要长时间的积累的，但我现在优先要准备面试，所以没办法这么细地看这些东西，等有了offer之后，一定潜心研究研究，现在先过一遍别人总结的坑点吧～</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/golang/" rel="tag"># golang</a>
+              <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="tag"># 学习笔记</a>
+              <a href="/tags/mark/" rel="tag"># mark</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/03/22/2/" rel="prev" title="今天干了什么">
+                  <i class="fa fa-chevron-left"></i> 今天干了什么
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2023/03/23/4/" rel="next" title="技术博客收藏">
+                  技术博客收藏 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa-solid fa-shield-cat"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jerry_L</span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
